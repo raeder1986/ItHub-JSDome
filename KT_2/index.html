@@ -1,0 +1,39 @@
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<title>METANIT.COM</title>
+	<script type="text/javascript" src="cats.js"></script>
+</head>
+
+<body>
+	<h1 style="font-size: 24px; color: red;">КОШКИ!</h1>
+	<script>
+		cats.forEach(function (cat) {
+			let main = document.createElement("div");
+			main.classList.add("cats");
+			main.id = cat.id;
+			main.style.color = "blue";
+			document.body.appendChild(main)
+
+			let name = document.createElement("h2")
+			name.innerHTML = cat.name;
+			main.appendChild(name);
+
+			let props = document.createElement("ul")
+			props.innerHTML += "<li>Возраст: " + cat.age + "</li>";
+			props.innerHTML += "<li>Рейтинг: " + cat.rate + "</li>"
+			if (cat.favourite == true) {
+				props.innerHTML += "<li>Любимая!!!</li>"
+			} else {
+				props.innerHTML += "<li>Не самая любимая=(</li>"
+			}
+			props.innerHTML += "<li>Описание: " + "<br>" + cat.description + "</li>";
+			props.innerHTML += "<li><a href=" + cat.img_link + ">Фото</a></li>"
+			main.appendChild(props);
+		});
+
+	</script>
+</body>
+
+</html>

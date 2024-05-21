@@ -1,0 +1,74 @@
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<title>METANIT.COM</title>
+</head>
+
+<body>
+	<div class="card" id="first">
+		<h2>Lorem ipsum, dolor.</h2>
+		<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo, non obcaecati dolore delectus in sint dolor?
+			Qui quo, praesentium ullam.</p>
+	</div>
+	<div class="card" id="second">
+		<h1>Second card</h1>
+	</div>
+	<script>
+		let doc = document.getElementsByClassName("card");
+		for (let i = 0; i < doc.length; i++) {
+			console.log(doc[i]);
+		}
+		console.log("___________________");
+
+		let cards = document.querySelectorAll('.card');
+		try {
+			cards.forEach(function (card) {
+				console.log(card);
+			});
+		} catch (err) {
+			console.error(err);
+		}
+
+		let card1 = document.getElementById("first");
+
+		let title = document.createElement("h1");
+		title.innerText = "Zaic!!!";
+		title.style.position = "absolute";
+		title.style.left = "300px";
+		title.style.fontSize = "24px"
+
+		let paragraph = document.createElement("p");
+		paragraph.innerText = "lox!!!";
+
+		let link = document.createElement("a");
+		link.innerText = "link";
+		link.href = "https://yandex.ru";
+
+		card1.append(title, paragraph, link);
+		//card1.insertBefore(title, card1.childNodes[0]);
+
+		card1.removeChild(link)
+
+		let card2 = document.getElementById("second");
+		let input = document.createElement("input");
+		input.type = "number";
+		input.min = "10";
+		input.max = "150";
+		input.step = "0.1";
+		input.name = "weight";
+
+		let label = document.createElement("label");
+		label.innerText = "Выберите вес";
+		input.id = "wght";
+		//label.for = "wght";
+		label.setAttribute("for", "wght")
+
+		card2.append(label, input)
+		card2.className += " active"
+
+
+	</script>
+</body>
+
+</html>
