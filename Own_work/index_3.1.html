@@ -1,0 +1,27 @@
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<title>METANIT.COM</title>
+</head>
+
+<body>
+	<div class="card" id="first">
+		<h2>Lorem ipsum, dolor.</h2>
+		<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo, non obcaecati dolore delectus in sint dolor?
+			Qui quo, praesentium ullam.</p>
+	</div>
+	<script>
+		let card = document.getElementById("first");
+		let paragraph = document.createElement("p");
+		paragraph.innerText = "lox!!!";
+		card.addEventListener("click", function (e) {
+			console.log("Click");
+		});
+		card.addEventListener("dblclick", function () {
+			console.log("Double Click");
+		});
+	</script>
+</body>
+
+</html>

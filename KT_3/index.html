@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider Example</title>
+    <style>
+        .slider-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+        }
+        .slider-value {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="slider-container">
+        <div class="slider-value" id="sliderValue">50</div>
+        <input type="range" id="slider" min="0" max="100" value="50">
+    </div>
+
+    <script>
+        const slider = document.getElementById('slider');
+        const sliderValue = document.getElementById('sliderValue');
+
+        function updateSliderValue() {
+            sliderValue.textContent = slider.value;
+        }
+        
+        function onMouseDown(event) {
+            updateSliderValue();
+            document.addEventListener('mousemove', updateSliderValue);
+        }
+
+        slider.addEventListener('mousedown', onMouseDown);
+
+        updateSliderValue();
+    </script>
+</body>
+</html>

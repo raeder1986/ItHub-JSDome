@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Paint</title>
+	<style>
+		.circle {
+			position: fixed;
+			top: calc(50vh - 50px);
+			left: calc(50vw - 50px);
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			border-radius: 50%;
+			display: none;
+		}
+
+		.circle.active {
+			display: block;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="circle"></div>
+	<script>
+		let circle = document.querySelector(".circle");
+		document.body.addEventListener("keydown", function (e) {
+			switch (e.key) {
+				case "Enter":
+					if (!circle.classList.contains("active")) {
+						circle.classList.add("active");
+					}
+					break;
+				case "Escape":
+					circle.classList.remove("active");
+					break;
+			}
+		})
+	</script>
+</body>
+
+</html>
