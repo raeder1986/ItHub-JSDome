@@ -1,0 +1,40 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>METANIT.COM</title>
+</head>
+
+<body>
+    <form id="user">
+        <input type="text" name="name" placeholder="Ваше имя">
+        <input type="email" name="email" placeholder="Электронный адрес">
+        <input type="number" name="age" placeholder="Сколько вам лет">
+        <select name="english">
+            <option>A1</option>
+            <option>A2</option>
+            <option>B1</option>
+            <option>B2</option>
+            <option>B3</option>
+            <option>C</option>
+        </select>
+        <button type="submit">Отправить</button>
+    </form>
+    <div class="result"></div>
+    <script>
+        const form = document.forms.user;
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+            const body = {}
+            for (let i = 0; i < form.elements.length; i++) {
+                let el = form.elements[i];
+                if (el.name) {
+                    body[el.name] = el.value;
+                }
+            }
+            console.log(body);
+        })
+    </script>
+</body>
+
+</html>

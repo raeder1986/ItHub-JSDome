@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Card Form</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            height: 100vh;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+        .card {
+            width: 50%;
+            max-width: 350px;
+            height: 200px;
+            background: linear-gradient(135deg, #4a90e2, #9013fe);
+            border-radius: 15px;
+            padding: 20px;
+            color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .card-text {
+            color: white;
+            font-size: 16px;
+        }
+        .bank-name {
+            align-self: flex-start;
+        }
+        .payment-system {
+            align-self: flex-end;
+        }
+        .card-number {
+            text-align: center;
+            font-size: 20px;
+        }
+        .cardholder {
+            align-self: flex-start;
+        }
+        .valid-to {
+            align-self: flex-start;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <span class="card-text bank-name">Bank Name</span>
+        <span class="card-text payment-system">Payment System</span>
+        <span class="card-text card-number">Card Number</span>
+        <span class="card-text cardholder">Cardholder Name</span>
+        <span class="card-text valid-to">Valid To (MM/YY)</span>
+    </div>
+</body>
+</html>

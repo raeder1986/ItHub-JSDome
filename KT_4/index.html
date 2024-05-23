@@ -1,0 +1,153 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>METANIT.COM</title>
+    <style>
+        th,
+        td {
+            border: 1px solid black;
+            padding: 4px;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        table {
+            border-collapse: collapse;
+            text-align: center;
+            vertical-align: middle;
+            width: 40%;
+            position: relative;
+            top: 300px;
+            left: -800px;
+
+        }
+
+        form {
+            width: 20%;
+            position: relative;
+            top: 20px;
+            left: -100px;
+        }
+
+        input {
+            font-size: 18px;
+            height: 18px;
+            margin-top: 6px;
+            margin-bottom: 6px;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            height: 100vh;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+        .card {
+            width: 50%;
+            max-width: 350px;
+            height: 200px;
+            background: linear-gradient(135deg, #4a90e2, #9013fe);
+            border-radius: 15px;
+            padding: 20px;
+            color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-text {
+            color: white;
+            font-size: 16px;
+        }
+
+        .bank-name {
+            align-self: flex-start;
+        }
+
+        .payment-system {
+            align-self: flex-end;
+        }
+
+        .card-number {
+            text-align: center;
+            font-size: 20px;
+        }
+
+        .cardholder {
+            align-self: flex-start;
+        }
+
+        .valid-to {
+            align-self: flex-start;
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="data">
+        <input type="text" name="Bank" placeholder="Название банка">
+        <input type="text" name="Payment_system" placeholder="Платежная система">
+        <input type="number" name="Card_num" placeholder="Номер карты">
+        <input type="text" name="Cardholder" placeholder="ФИО держателя">
+        <input type="text" name="Valid" placeholder="Месяц/год окончания">
+        <button type="submit">Добавить</button>
+    </form>
+    <div class="card" id="card">
+    </div>
+    <table id="table">
+        <tr>
+            <th ALIGN="right" VALIGN="middle">Название банка</th>
+            <th ALIGN="right" VALIGN="middle">Платежная система</th>
+            <th ALIGN="right" VALIGN="middle">Номер карты</th>
+            <th ALIGN="right" VALIGN="middle">ФИО держателя</th>
+            <th ALIGN="right" VALIGN="middle">Месяц/год окончания</th>
+        </tr>
+    </table>
+    <script>
+        const form = document.forms.data;
+        let table = document.getElementById("table");
+        let card = document.getElementById("card");
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+            const body = {}
+            for (let i = 0; i < form.elements.length; i++) {
+                let el = form.elements[i];
+                if (el.name) {
+                    body[el.name] = el.value;
+                }
+            }
+            var tr = document.createElement("tr");
+            tr.innerHTML = '<td>' + body.Bank + '</td> <td>' + body.Payment_system + '</td> <td>' + body.Card_num + '</td> <td>' + body.Cardholder + '</td> <td>' + body.Valid + '</td>';
+            table.appendChild(tr);
+            if (card.childElementCount > 0) {
+                card.innerHTML=''
+            }
+            let bank_name = document.createElement("span");
+            bank_name.innerText = body.Bank;
+            bank_name.className = 'card-text bank-name';
+            let payment_system = document.createElement("span");
+            payment_system.innerText = body.Payment_system;
+            payment_system.className = 'card-text payment-system';
+            let card_number = document.createElement("span");
+            card_number.innerText = body.Card_num;
+            card_number.className = 'card-text card-number';
+            let cardholder = document.createElement("span");
+            cardholder.innerText = body.Cardholder;
+            cardholder.className = 'card-text cardholder';
+            let validto = document.createElement("span");
+            validto.innerText = body.Valid;
+            validto.className = 'card-text valid-to';
+            card.append(bank_name, payment_system, card_number, cardholder, validto)
+        })
+    </script>
+</body>
+
+</html>
